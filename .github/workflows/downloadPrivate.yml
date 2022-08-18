@@ -1,0 +1,18 @@
+name: downloadPrivate
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    name: download
+    runs-on: ubuntu-latest
+
+    steps:
+    - run: ls -al
+    - name: Checkout code
+      uses: actions/checkout@v3
+      with:
+        ssh-key: ${{ secrets.THIS_IS_PRIVATE_KEY}}
+        repository: tyjeon24/downloadMe
+    - run: ls -al
